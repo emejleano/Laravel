@@ -27,13 +27,11 @@
                         <label for="" style="font-size: 1rem; background:rgba(234,88,11,255); color:white;" class="float-end badge  trending_tag">{{$product->trending == "1" ? 'Trending': '' }}</label>
                     </h2>
                     <hr>
-                    <label for="" class="me-3">Original Price  : <s>Rs {{$product->original_price}}</s></label>
-                    <label for="" class="fw-bold">Selling Price  : Rs {{$product->selling_price}}</label>
+                    <label for="" class="me-3">Original Price  : <s>Rp {{$product->original_price}}</s></label>
+                    <label for="" class="fw-bold">Selling Price  : Rp {{$product->selling_price}}</label>
                     <p class="mt-3">
                         {!! $product->small_description !!}
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam labore quibusdam voluptate repudiandae accusamus dicta aut voluptates doloremque perspiciatis beatae!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente incidunt ducimus culpa vita
-                    </p>
+                        </p>
                     <hr>
                     @if($product->qty > 0)
                         <label for="" style="background:rgba(234,88,11,255); color:white;" class="badge">In Stock</label>

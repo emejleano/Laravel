@@ -33,7 +33,7 @@
                     <h5>{{$item->products->name}}</h5>
                 </div>
                 <div class="col-md-2 text-center ">
-                    <h5>RS {{$item->products->selling_price}}</h5>
+                    <h5>Rp {{$item->products->selling_price}}</h5>
                 </div>
                 <div class="col-md-3">
                     <input type="hidden" class="prod_id" value="{{$item->prod_id}}">
@@ -61,7 +61,7 @@
         </div>
         <div class="card-footer d-flex flex-column">
             <div class="d-flex align-items-center justify-content-end text-center">
-                <h6 class="float-end">Total Price : RS {{$total}}</h6>
+                <h6 class="float-end">Total Price : Rp {{$total}}</h6>
             </div>
             <hr>
             <div class="d-flex align-items-center justify-content-end">
