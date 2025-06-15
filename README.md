@@ -85,19 +85,19 @@ Dokumentasi Tampilan :
 ## 🖼️ Tampilan Antarmuka Aplikasi
 
 ### 🏠 Halaman Utama / Home
-![Halaman Utama](public\screenshots\halaman-utama.png)
+![Halaman Utama](public/screenshots/halaman-utama.png)
 
 ### 🛠️ Admin Dashboard
-![Admin Dashboard](public\screenshots\admin-dashboard.png)
+![Admin Dashboard](public/screenshots/admin-dashboard.png)
 
 ### 🛒 Halaman Product
-![Halaman Product](public\screenshots\halaman-product.png)
+![Halaman Product](public/screenshots/halaman-product.png)
 
 ### ℹ️ Halaman About
-![Halaman About](public\screenshots\halaman-about.png)
+![Halaman About](public/screenshots/halaman-about.png)
 
 ### 📞 Halaman Contact
-![Halaman Contact](public\screenshots\halaman-contact.png)
+![Halaman Contact](public/screenshots/halaman-contact.png)
 
 ### 🗂️ Halaman Category
-![Halaman Category](public\screenshots\halaman-category.png)
+![Halaman Category](public/screenshots/halaman-category.png)
