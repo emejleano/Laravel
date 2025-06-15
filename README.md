@@ -77,3 +77,27 @@ Buka browser dan akses: [http://localhost:8000](http://localhost:8000)
 
 ✅ Selesai!  
 Project Laravel kamu sekarang siap dijalankan di lokal 🎉
+
+Dokumentasi Tampilan :
+
+---
+
+## 🖼️ Tampilan Antarmuka Aplikasi
+
+### 🏠 Halaman Utama / Home
+![Halaman Utama](public\screenshots\halaman-utama.png)
+
+### 🛠️ Admin Dashboard
+![Admin Dashboard](public\screenshots\admin-dashboard.png)
+
+### 🛒 Halaman Product
+![Halaman Product](public\screenshots\halaman-product.png)
+
+### ℹ️ Halaman About
+![Halaman About](public\screenshots\halaman-about.png)
+
+### 📞 Halaman Contact
+![Halaman Contact](public\screenshots\halaman-contact.png)
+
+### 🗂️ Halaman Category
+![Halaman Category](public\screenshots\halaman-category.png)

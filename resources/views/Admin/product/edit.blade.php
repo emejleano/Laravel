@@ -1,79 +1,119 @@
 @extends('layouts.admin')
 
-
 @section('content')
 <div class="card">
     <div class="card-header">
-      <h4>Update Product</h4>
+        <h4>Update Product</h4>
     </div>
     <div class="card-body">
-        <form method="POST" action="{{url('update-product/'.$product->id)}}" enctype="multipart/form-data"> 
+
+        {{-- Tampilkan error validasi --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form method="POST" action="{{ url('update-product/'.$product->id) }}" enctype="multipart/form-data"> 
             @csrf
             @method('PUT')
             <div class="row">
+                {{-- Jika ingin ubah kategori --}}
+                {{-- <div class="col-md-12 mb-3">
+                    <label>Category</label>
+                    <select class="form-select border border-dark p-2" name="cate_id">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" {{ $product->cate_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div> --}}
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Name</label>
-                    <input type="text" class="form-control border border-dark p-2" value="{{ $product->name }}" name="name">
+                    <label>Name</label>
+                    <input type="text" class="form-control border border-dark p-2" name="name" value="{{ $product->name }}">
                 </div>    
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Slug</label>
-                    <input type="text" class="form-control border border-dark p-2" value="{{ $product->slug }}" name="slug">
+                    <label>Slug</label>
+                    <input type="text" class="form-control border border-dark p-2" name="slug" value="{{ $product->slug }}">
                 </div> 
+
                 <div class="col-md-12 mb-3">
-                    <label for="">Small Description</label>
-                    <textarea name="small_description"  rows="3" class="form-control p-2 border border-dark" >{{ $product->small_description }} </textarea>   
+                    <label>Small Description</label>
+                    <textarea name="small_description" rows="3" class="form-control p-2 border border-dark">{{ $product->small_description }}</textarea>   
                 </div>    
+
                 <div class="col-md-12 mb-3">
-                    <label for="">Description</label>
-                    <textarea name="description"  rows="3" class="form-control p-2 border border-dark" >{{ $product->description }} </textarea>   
+                    <label>Description</label>
+                    <textarea name="description" rows="3" class="form-control p-2 border border-dark">{{ $product->description }}</textarea>   
                 </div>
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Original Price</label>
+                    <label>Original Price</label>
                     <input type="number" class="form-control border border-dark p-2" name="original_price" value="{{ $product->original_price }}">
                 </div> 
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Selling Price</label>
+                    <label>Selling Price</label>
                     <input type="number" class="form-control border border-dark p-2" name="selling_price" value="{{ $product->selling_price }}">
                 </div> 
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Quantity</label>
+                    <label>Quantity</label>
                     <input type="number" class="form-control border border-dark p-2" name="qty" value="{{ $product->qty }}">
                 </div> 
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Tax</label>
+                    <label>Tax</label>
                     <input type="number" class="form-control border border-dark p-2" name="tax" value="{{ $product->tax }}">
                 </div> 
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Status</label>
-                    <input type="checkbox"  class="border border-dark p-2" name="status" {{ $product->status == "1" ? "checked" : "" }}>
+                    <label>Status</label><br>
+                    <input type="checkbox" name="status" {{ $product->status == "1" ? "checked" : "" }}>
                 </div>    
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Trending</label>
-                    <input type="checkbox"  class="border border-dark p-2" name="trending" {{ $product->trending == "1" ? "checked" : ""}}>
+                    <label>Trending</label><br>
+                    <input type="checkbox" name="trending" {{ $product->trending == "1" ? "checked" : "" }}>
                 </div>    
+
                 <div class="col-md-6 mb-3">
-                    <label for="">Meta Title</label>
+                    <label>Meta Title</label>
                     <input type="text" class="form-control border border-dark p-2" name="meta_title" value="{{ $product->meta_title }}">
                 </div>    
+
                 <div class="col-md-12 mb-3">
-                    <label for="">Meta Keyword</label>
-                    <textarea name="meta_keyword"  rows="3" class="form-control border border-dark p-2"> {{ $product->meta_keyword }}</textarea> 
+                    <label>Meta Keyword</label>
+                    <textarea name="meta_keyword" rows="3" class="form-control border border-dark p-2">{{ $product->meta_keyword }}</textarea> 
                 </div>    
+
                 <div class="col-md-12 mb-3">
-                    <label for="">Meta Description</label>
-                    <textarea name="meta_description"  rows="3" class="form-control border border-dark p-2"> {{ $product->description }}</textarea> 
+                    <label>Meta Description</label>
+                    <textarea name="meta_description" rows="3" class="form-control border border-dark p-2">{{ $product->meta_description }}</textarea> 
                 </div>    
-                @if ($product->image)
-                    <img src="{{asset('upload/product/'.$product->image)}}" class="w-25 h-25" alt="no image">
-                @endif
+
                 <div class="col-md-12 mb-3">
-                   <input type="file" name="image"  class="form-control border border-dark p-2" value="{{ $product->image }}">
+                    <label>Current Image</label><br>
+                    @if ($product->image)
+                        <img src="{{ asset('upload/product/'.$product->image) }}" class="w-25 h-25" alt="no image">
+                    @endif
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label>Change Image</label>
+                    <input type="file" name="image" class="form-control border border-dark p-2">
                 </div>    
+
                 <div class="col-md-12 mb-3">
-                   <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>    
             </div>    
         </form>
     </div>
-  </div>
+</div>
 @endsection
